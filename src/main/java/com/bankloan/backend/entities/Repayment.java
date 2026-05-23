@@ -1,5 +1,6 @@
 package com.bankloan.backend.entities;
 
+import com.bankloan.backend.enums.PaymentMethod;
 import com.bankloan.backend.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,11 +30,19 @@ public class Repayment {
     @Column(nullable = false)
     private Double amountDue;
 
+    private Double paidAmount;
+
     private LocalDate paymentDate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PaymentStatus paymentStatus;
+
+    @Column(unique = true)
+    private String transactionId;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod;
 
     @Column(updatable = false)
     private LocalDateTime createdAt;

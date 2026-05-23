@@ -37,10 +37,7 @@ public class User {
 
     private LocalDateTime updatedAt;
 
-    @OneToOne(
-            mappedBy = "user",
-            cascade = CascadeType.ALL
-    )
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Customer customer;
 
     @PrePersist
